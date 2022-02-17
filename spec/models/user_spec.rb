@@ -11,4 +11,9 @@ RSpec.describe(User) do
       expect(User.new(username: 'abcç')).not_to be_valid
     end
   end
+
+  describe 'relationships' do
+    it { should have_many(:followers) }
+    it { should have_many(:following) }
+  end
 end
