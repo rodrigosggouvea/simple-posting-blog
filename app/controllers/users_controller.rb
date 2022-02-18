@@ -6,7 +6,8 @@ class UsersController < ApplicationController
       username: @user.username,
       joined_at: I18n.l(@user.created_at.to_date, format: :long),
       followers: @user.followers.count,
-      following: @user.following.count
+      following: @user.following.count,
+      posts: @user.posts.count
     }
   end
 

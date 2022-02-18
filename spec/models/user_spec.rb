@@ -15,5 +15,6 @@ RSpec.describe(User) do
   describe 'relationships' do
     it { should have_many(:followers) }
     it { should have_many(:following) }
+    it { should have_many(:posts) }
   end
 end
