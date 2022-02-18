@@ -12,6 +12,10 @@
 
 * Debugging gem: Pry
 
+### Seeds
+
+* There is a seed file, to create and admin and an standard user
+
 ### Authentication
 
 * Authentication is not required (fill take the first user as current user), but you cal also pass the user id on the user_id header
