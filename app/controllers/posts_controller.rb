@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.where.not(body: nil).where(parent_id: nil) # only listing standard posts
     render json: @posts
   end
 
