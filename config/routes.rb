@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     collection do
       get :following
       get :replies
+      get :search
     end
   end
 end

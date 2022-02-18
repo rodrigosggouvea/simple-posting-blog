@@ -9,6 +9,11 @@ class PostsController < ApplicationController
     render json: @posts
   end
 
+  def search
+    @posts = Post.search(params[:search])
+    render json: @posts
+  end
+
   def replies
     @posts = current_user.posts.includes(replies: :user)
     response = @posts.map do |post|

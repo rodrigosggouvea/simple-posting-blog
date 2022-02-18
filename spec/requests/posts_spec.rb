@@ -54,6 +54,20 @@ RSpec.describe('Posts', type: :request) do
     end
   end
 
+  describe 'GET /search' do
+    it 'searches through posts' do
+      2.times { |x| user.posts.create!(body: "Post ##{x}") }
+
+      get '/posts/search', params: { search: '#1' }, headers: headers
+
+      ids = JSON.parse(response.body).map { |post| post['id'] }
+
+      expect(response).to have_http_status(:success)
+      expect(ids).to include(Post.last.id)
+      expect(ids).not_to include(Post.first.id)
+    end
+  end
+
   describe 'POST /posts' do
     it 'returns errors with invalid post' do
       post '/posts', params: { post: { body: '' } }, headers: headers

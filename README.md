@@ -49,6 +49,7 @@
 ## Critique
 
 * what I would like to improve:
+** Implement unit tests for all scopes;
 ** Implement authentication using Devise gem;
 ** Implement pagination for all requests (using kaminari, or pagy gems);
 ** Implement serializers for Posts and Users, and remove that ugly code from the controllers;
@@ -74,6 +75,10 @@
 
 * GET /posts
 - Lists all posts
+
+* GET /posts/search
+- parameters: search
+- Searches on all posts
 
 * GET /posts/following
 - Lists all posts from current users following users

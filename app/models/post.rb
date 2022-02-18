@@ -13,6 +13,7 @@ class Post < ApplicationRecord
 
   scope :today, -> { where('DATE(created_at) = ?', Date.today) }
   scope :by_user, ->(user_id) { where(user: user_id) }
+  scope :search, ->(search) { where('lower(body) LIKE ?', "%#{search.downcase}%") }
 
   def user_post_limit
     errors.add(:user, 'users cannot post more than 5 times a day') if Post.by_user(user_id).today.count == 5
