@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_18_113604) do
   create_table "posts", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "body"
-    t.integer "parent_id", null: false
+    t.integer "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["parent_id"], name: "index_posts_on_parent_id"

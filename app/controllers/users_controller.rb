@@ -12,11 +12,9 @@ class UsersController < ApplicationController
   end
 
   def follow
-    follow = Follow.new(
-      follower: current_user,
-      followed: @user
-    )
+    follow = current_user.following.build(followed: @user)
     if follow.valid?
+      follow.save
       render json: follow
     else
       render json: { errors: follow.errors.messages }, status: :unprocessable_entity
@@ -24,10 +22,7 @@ class UsersController < ApplicationController
   end
 
   def unfollow
-    Follow.find_by(
-      follower: current_user,
-      followed: @user
-    ).destroy!
+    current_user.following.where(followed: @user).first.destroy!
   end
 
   private
