@@ -10,3 +10,19 @@
 
 * Tests framework: RSpec
 
+* Debugging gem: Pry
+
+### Authentication
+
+* Authentication is not required (fill take the first user as current user), but you cal also pass the user id on the user_id header
+
+### Requests
+
+* GET /users/:user_id
+- User SHOW endpoint
+
+* POST /users/:user_id/follow
+- Request for following an user
+
+* DELETE /users/:user_id/unfollow
+- Request for unfollowing an user
