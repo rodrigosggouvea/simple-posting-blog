@@ -14,5 +14,6 @@ RSpec.describe(Post, type: :model) do
 
   describe 'relationships' do
     it { should belong_to(:user) }
+    it { should have_many(:replies) }
   end
 end

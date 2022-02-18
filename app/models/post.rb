@@ -3,7 +3,8 @@ class Post < ApplicationRecord
   belongs_to :parent, class_name: 'Post', optional: true
   # create a standard post by just sending body,
   # a repost by just sending the parent_id,
-  # and a quote by sending both parent_id and body
+  # and a reply by sending both parent_id and body
+  has_many :replies, class_name: 'Post', foreign_key: :parent_id
 
   validates :body, presence: true, if: -> { parent_id.blank? }
   validates :body, length: { maximum: 777 }
