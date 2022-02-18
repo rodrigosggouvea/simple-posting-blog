@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :create] do
     collection do
       get :following
+      get :replies
     end
   end
 end

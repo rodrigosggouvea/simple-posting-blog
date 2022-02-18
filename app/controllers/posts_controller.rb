@@ -9,6 +9,27 @@ class PostsController < ApplicationController
     render json: @posts
   end
 
+  def replies
+    @posts = current_user.posts.includes(replies: :user)
+    response = @posts.map do |post|
+      {
+        id: post.id,
+        body: post.body,
+        added_at: I18n.l(post.created_at, format: :long),
+        replies: post.replies.map do |reply|
+          {
+            id: reply.id,
+            body: reply.body,
+            added_at: I18n.l(reply.created_at, format: :long),
+            user_id: reply.user_id,
+            author: reply.user.username
+          }
+        end
+      }
+    end
+    render json: response
+  end
+
   def create
     # create a standard post by just sending body,
     # a repost by just sending the parent_id,

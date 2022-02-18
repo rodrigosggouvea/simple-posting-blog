@@ -35,10 +35,12 @@
 * Add the /replies GET route/action to PostsController, that retrieves all current user's posts, along with each post's replies, and map them accordingly with the following format:
   {
     id: main post id,
-    body: main opst body,
+    body: main post body,
+    added_at: main post creation datetime
     replies: [{
       id: reply_id,
       body: reply_body,
+      added_at: reply creation datetime
       user_id: author user's id,
       author: author user's username
     }] 
