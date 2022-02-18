@@ -5,4 +5,10 @@ Rails.application.routes.draw do
       delete :unfollow
     end
   end
+
+  resources :posts, only: [:index, :create] do
+    collection do
+      get :following
+    end
+  end
 end

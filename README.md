@@ -30,3 +30,16 @@
 
 * DELETE /users/:user_id/unfollow
 - Request for unfollowing an user
+
+* GET /posts
+- Lists all posts
+
+* GET /posts/following
+- Lists all posts from current users following users
+
+* POST /posts
+- Parameters: body, and parent_id (id of parent post for quote/reply or repost)
+- Creates post:
+-- create a standard post by just sending body,
+-- a repost by just sending the parent_id,
+-- and a quote by sending both parent_id and body
