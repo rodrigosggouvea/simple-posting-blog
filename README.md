@@ -1,4 +1,4 @@
-# Strider Web Back-end Assessment - 2.1 - Rodrigo Gouvea - Ruby on Rails (back-end)
+# Rodrigo Gouvea - Ruby on Rails (back-end)
 
 ##POSTERR - an twitter-like application.
 
@@ -19,32 +19,6 @@
 ### Authentication
 
 * Authentication is not required (fill take the first user as current user), but you cal also pass the user id on the user_id header
-
-## Planning - reply feature
-
-### Questions
-* The "Posts and Replies" route will list all posts, following posts or current user's posts? I'll assume the third option.
-
-### Implementation
-* On the database, reply posts are posts that have the body defined (the reply text), and parent_id defined (the main post reference). With that replies (on post model, a post have many replies based on parent_id) relationship, we can take each reply post and render the parent post alongside it on the controller.
-
-### Tasks
-
-* Add the replies relationship to Post model;
-
-* Add the /replies GET route/action to PostsController, that retrieves all current user's posts, along with each post's replies, and map them accordingly with the following format:
-  {
-    id: main post id,
-    body: main post body,
-    added_at: main post creation datetime
-    replies: [{
-      id: reply_id,
-      body: reply_body,
-      added_at: reply creation datetime
-      user_id: author user's id,
-      author: author user's username
-    }] 
-  }
 
 ## Critique
 
